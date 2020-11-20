@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: 1234
+  host: localhost
+
+development:
+  <<: *default
+  database: encrypt_message_development
+
+test:
+  <<: *default
+  database: encrypt_message_test
+
+production:
+  <<: *default
+  database: encrypt_message_production
+  username: encrypt_message
+  password: 1234
